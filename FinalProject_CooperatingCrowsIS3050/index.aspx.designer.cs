@@ -94,5 +94,50 @@ namespace FinalProject_CooperatingCrowsIS3050
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSolveMedianOfTwoArraysSolution;
+
+        /// <summary>
+        /// lblBinaryMatrixFlipper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipper;
+
+        /// <summary>
+        /// lblBinaryMatrixFlipperTestCase1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperTestCase1;
+
+        /// <summary>
+        /// lblBinaryMatrixFlipperTestCase2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperTestCase2;
+
+        /// <summary>
+        /// bnSolveBinaryMatrixFlipper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bnSolveBinaryMatrixFlipper;
+
+        /// <summary>
+        /// lblBinaryMatrixFlipperSolution control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperSolution;
     }
 }
