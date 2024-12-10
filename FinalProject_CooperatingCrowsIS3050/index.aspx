@@ -1,12 +1,10 @@
 ﻿<!-- Name: CooperatingCrows
-# email:
-# Assignment Title: Assignment nn
-# Due Date:
+# email: gauthiaj@mail.uc.edu
+# Assignment Title: Final Project
+# Due Date:12/10/2024
 # Course: IS 3050
-# Semester/Year:
-# Brief Description: This project ...
-# Citations:
-# Anything else that's relevant:
+# Semester/Year: Fall 2024
+# Brief Description: This project creates a landing page that allows you to select a leet code problem to look at and see the solution and code relating to it 
     -->
 
 
@@ -29,6 +27,7 @@
             <asp:ListItem Text="-- Select a Problem --" Value="" />
             <asp:ListItem Text="Median of Two Sorted Arrays" Value="Median" />
             <asp:ListItem Text="Binary Matrix Flipper" Value="Binary" />
+            <asp:ListItem Text="Longest Valid Parentheses" Value="Parentheses" />
         </asp:DropDownList>
 
         <br /><br />
@@ -36,7 +35,7 @@
         <!-- Problem Details -->
         <asp:Label ID="lblProblemDescription" runat="server" Text=""></asp:Label><br /><br />
 
-        <!-- Input Fields -->
+        <!-- Median Problem Inputs -->
         <asp:Panel ID="pnlMedianInputs" runat="server" Visible="false">
             <asp:Label ID="lblArray1" runat="server" Text="Enter Array 1 (comma-separated):"></asp:Label>
             <asp:TextBox ID="txtArray1" runat="server"></asp:TextBox><br /><br />
@@ -45,13 +44,19 @@
             <asp:TextBox ID="txtArray2" runat="server"></asp:TextBox><br /><br />
         </asp:Panel>
 
+        <!-- Longest Valid Parentheses Inputs -->
+        <asp:Panel ID="pnlSingleInput" runat="server" Visible="false">
+            <asp:Label ID="lblInput" runat="server" Text="Enter a string of parentheses:"></asp:Label>
+            <asp:TextBox ID="txtInput" runat="server"></asp:TextBox><br /><br />
+        </asp:Panel>
+
+        <!-- Solve Button -->
         <asp:Button ID="btnSolve" runat="server" Text="Solve" OnClick="btnSolve_Click" Visible="false" />
         <br /><br />
 
-        <asp:Label ID="lblSolution" runat="server" CssClass="output"></asp:Label>
-        <br /><br />
-
-        <asp:Label ID="lblCodeExecuted" runat="server" Text="" CssClass="codeOutput"></asp:Label>
+        <!-- Solution Output -->
+       <asp:Label ID="lblSolution" runat="server" CssClass="output"></asp:Label><br />
+       <asp:Label ID="lblCodeExecuted" runat="server" CssClass="codeOutput" TextMode="MultiLine" Style=" display: block; margin-top: 15px; padding: 10px; font-size: 16px; color: #444; background-color: #f4f4f4; border: 1px solid #ccc; white-space: pre-line;"></asp:Label>
             </div>
     </form>
 </body>
