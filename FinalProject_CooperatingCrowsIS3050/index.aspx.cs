@@ -1,12 +1,11 @@
-﻿/* # Name:
-# email:
-# Assignment Title: Assignment nn
-# Due Date:
+﻿/* # Name:Cooperating Crows
+# email: gauthiaj@mail.uc.edu
+# Assignment Title: Final Project 
+# Due Date: 12/10/2024
 # Course: IS 3050
-# Semester/Year:
-# Brief Description: This project ...
-# Citations:
-# Anything else that's relevant:
+# Semester/Year: Fall 2024
+# Brief Description: This project is the final in our class that solves problems
+# Citations: ChatGPT
 */
 
 
