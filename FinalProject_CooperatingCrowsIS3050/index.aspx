@@ -27,6 +27,7 @@
             <asp:ListItem Text="Median of Two Sorted Arrays" Value="Median" />
             <asp:ListItem Text="Binary Matrix Flipper" Value="Binary" />
             <asp:ListItem Text="Longest Valid Parentheses" Value="Parentheses" />
+            <asp:ListItem Text="Regular Expression" Value="Regex"></asp:ListItem>
         </asp:DropDownList>
 
         <br /><br />
@@ -47,6 +48,15 @@
         <asp:Panel ID="pnlSingleInput" runat="server" Visible="false">
             <asp:Label ID="lblInput" runat="server" Text="Enter a string of parentheses:"></asp:Label>
             <asp:TextBox ID="txtInput" runat="server"></asp:TextBox><br /><br />
+        </asp:Panel>
+
+        <!-- Regular Expression Inputs -->
+        <asp:Panel ID="pnlRegexInputs" runat="server" Visible="false">
+        <asp:Label ID="lblRegexInput" runat="server" Text="Enter string to match:"></asp:Label>
+        <asp:TextBox ID="txtRegexInput" runat="server"></asp:TextBox><br />
+
+        <asp:Label ID="lblRegexPattern" runat="server" Text="Enter pattern:"></asp:Label>
+        <asp:TextBox ID="txtRegexPattern" runat="server"></asp:TextBox><br />
         </asp:Panel>
 
         <!-- Solve Button -->

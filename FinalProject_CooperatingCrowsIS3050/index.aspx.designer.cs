@@ -114,6 +114,51 @@ namespace FinalProject_CooperatingCrowsIS3050
         protected global::System.Web.UI.WebControls.TextBox txtInput;
 
         /// <summary>
+        /// pnlRegexInputs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRegexInputs;
+
+        /// <summary>
+        /// lblRegexInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegexInput;
+
+        /// <summary>
+        /// txtRegexInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegexInput;
+
+        /// <summary>
+        /// lblRegexPattern control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegexPattern;
+
+        /// <summary>
+        /// txtRegexPattern control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegexPattern;
+
+        /// <summary>
         /// btnSolve control.
         /// </summary>
         /// <remarks>

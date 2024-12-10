@@ -5,6 +5,7 @@
 * Course #/Section: IS3050
 * Semester / Year: Fall 2024
 * Brief Description of the assignment: Final project
+* Citations: chatGPT
 */
 
 using System;

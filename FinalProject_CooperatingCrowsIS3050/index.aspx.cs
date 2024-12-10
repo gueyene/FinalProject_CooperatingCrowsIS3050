@@ -41,6 +41,8 @@ namespace FinalProject_CooperatingCrowsIS3050
             // Hide all input panels
             pnlMedianInputs.Visible = false;
             pnlSingleInput.Visible = false;
+            pnlRegexInputs.Visible = false;
+            
 
             // Display relevant input and problem description
             if (selectedProblem == "Median")
@@ -57,12 +59,18 @@ namespace FinalProject_CooperatingCrowsIS3050
                 lblProblemDescription.Text = "Given a string of parentheses, find the length of the longest valid (well-formed) parentheses substring.";
                 pnlSingleInput.Visible = true; // Show the correct panel
             }
+            else if (selectedProblem == "Regex")
+            {
+                lblProblemDescription.Text = "Given a string and a regular expression pattern, determine if the string matches the pattern.";
+                pnlRegexInputs.Visible = true;
+            }
             else
             {
                 lblProblemDescription.Text = "";
                 btnSolve.Visible = false; // Hide the Solve button if no valid problem is selected
             }
         }
+
 
         // Solve Button Click Handler
         protected void btnSolve_Click(object sender, EventArgs e)
@@ -198,6 +206,64 @@ namespace FinalProject_CooperatingCrowsIS3050
                      return maxLen; 
                      }";
                 }
+
+                else if (selectedProblem == "Regex")
+                {
+                    string input = txtInput.Text;  // Input string
+                    string pattern = txtRegexPattern.Text;  // Regex pattern
+
+                    // Call SolveRegexMatching method
+                    string result = SolveRegexMatching(input, pattern);
+
+                    // Display result
+                    lblSolution.Text = result;
+                    lblCodeExecuted.Text = @"
+                    public string SolveRegexMatching(string input, string pattern) 
+            { 
+                bool IsMatch(string s, string p)
+                {
+                    int m = s.Length;
+                    int n = p.Length;
+
+                    // Create a 2D DP array to store results of subproblems
+                    bool[,] dp = new bool[m + 1, n + 1];
+
+                    // Base case: Empty string matches empty pattern
+                    dp[0, 0] = true;
+
+                    // Handle cases where pattern starts with a '*' (which can match empty string)
+                    for (int j = 1; j <= n; j++)
+                    {
+                        if (p[j - 1] == '*')
+                        {
+                            dp[0, j] = dp[0, j - 2];
+                        }
+                    }
+
+                    // Fill the DP table
+                    for (int i = 1; i <= m; i++)
+                    {
+                        for (int j = 1; j <= n; j++)
+                        {
+                            if (p[j - 1] == s[i - 1] || p[j - 1] == '.')
+                            {
+                                dp[i, j] = dp[i - 1, j - 1]; // If characters match or there's a '.'
+                            }
+                            else if (p[j - 1] == '*')
+                            {
+                                // If '*' is used, we have two cases:
+                                // 1. Treat '*' as matching zero characters, i.e., dp[i, j - 2]
+                                // 2. If the character before '*' matches the current character in 's', we treat '*' as matching one or more characters.
+                                dp[i, j] = dp[i, j - 2] || (dp[i - 1, j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'));
+                            }
+                        }
+                    }
+
+                    // The answer is whether the entire string 's' matches the entire pattern 'p'
+                    return dp[m, n];}";
+                }
+                   
+                
             }
             catch (Exception)
             {
@@ -327,8 +393,61 @@ namespace FinalProject_CooperatingCrowsIS3050
                 return maxLen;
             }
         }
-    }
 
+        // Solve Regex Matching method using dynamic programming
+        public string SolveRegexMatching(string input, string pattern)
+        {
+            bool IsMatch(string s, string p)
+            {
+                int m = s.Length;
+                int n = p.Length;
+
+                // Create a 2D DP array to store results of subproblems
+                bool[,] dp = new bool[m + 1, n + 1];
+
+                // Base case: Empty string matches empty pattern
+                dp[0, 0] = true;
+
+                // Handle cases where pattern starts with a '*' (which can match empty string)
+                for (int j = 1; j <= n; j++)
+                {
+                    if (p[j - 1] == '*')
+                    {
+                        dp[0, j] = dp[0, j - 2];
+                    }
+                }
+
+                // Fill the DP table
+                for (int i = 1; i <= m; i++)
+                {
+                    for (int j = 1; j <= n; j++)
+                    {
+                        if (p[j - 1] == s[i - 1] || p[j - 1] == '.')
+                        {
+                            dp[i, j] = dp[i - 1, j - 1]; // If characters match or there's a '.'
+                        }
+                        else if (p[j - 1] == '*')
+                        {
+                            // If '*' is used, we have two cases:
+                            // 1. Treat '*' as matching zero characters, i.e., dp[i, j - 2]
+                            // 2. If the character before '*' matches the current character in 's', we treat '*' as matching one or more characters.
+                            dp[i, j] = dp[i, j - 2] || (dp[i - 1, j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'));
+                        }
+                    }
+                }
+
+                // The answer is whether the entire string 's' matches the entire pattern 'p'
+                return dp[m, n];
+            }
+
+            bool isMatch = IsMatch(input, pattern);  // Check for regex match
+            return isMatch ? "Match found!" : "No match";  // Return result
+        }
+
+
+
+    }
+              
 
 
 }
