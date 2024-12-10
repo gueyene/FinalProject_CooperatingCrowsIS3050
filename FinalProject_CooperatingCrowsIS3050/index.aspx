@@ -16,11 +16,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
        <title>Cooporating Crows Final Project</title>
-    <link href="index_style.css" rel="stylesheet" type="text/css" />
+       <link href="index_style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="padding: 20px; background-color: #f4f4f4;">
     <form id="form1" runat="server">
-        <div class="container">
+        <div style=" background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 600px; margin: 0 auto;">
             <div class="header" style="font-weight: bold; text-align: center;">Welcome to the CooperatingCrows Final Project!</div>
 
         <asp:DropDownList ID="ddlProblems" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlProblems_SelectedIndexChanged">
