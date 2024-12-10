@@ -20,7 +20,7 @@
 </head>
 <body style="padding: 20px; background-color: #f4f4f4;">
     <form id="form1" runat="server">
-        <div style=" background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 600px; margin: 0 auto;">
+        <div style=" background: white; padding: 30px; border-radius: 10px; width: 600px; margin: 0 auto;">
             <div class="header" style="font-weight: bold; text-align: center;">Welcome to the CooperatingCrows Final Project!</div>
 
         <asp:DropDownList ID="ddlProblems" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlProblems_SelectedIndexChanged">
