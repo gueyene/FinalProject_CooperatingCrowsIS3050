@@ -1,1 +1,30 @@
-﻿
+﻿/* # Name:
+# email:
+# Assignment Title: Assignment nn
+# Due Date:
+# Course: IS 3050
+# Semester/Year:
+# Brief Description: This project ...
+# Citations:
+# Anything else that's relevant:
+*/
+
+
+    /* Global Styles */
+    body
+
+{
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Main Container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin: 0 auto;
+}

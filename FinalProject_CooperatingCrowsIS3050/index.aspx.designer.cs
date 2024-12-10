@@ -24,22 +24,31 @@ namespace FinalProject_CooperatingCrowsIS3050
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblTitle control.
+        /// ddlProblems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProblems;
 
         /// <summary>
-        /// lblparagraph1 control.
+        /// lblProblemDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblparagraph1;
+        protected global::System.Web.UI.WebControls.Label lblProblemDescription;
+
+        /// <summary>
+        /// pnlMedianInputs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMedianInputs;
 
         /// <summary>
         /// lblArray1 control.
@@ -78,66 +87,30 @@ namespace FinalProject_CooperatingCrowsIS3050
         protected global::System.Web.UI.WebControls.TextBox txtArray2;
 
         /// <summary>
-        /// bnSolveMedianOfTwoArrays control.
+        /// btnSolve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bnSolveMedianOfTwoArrays;
+        protected global::System.Web.UI.WebControls.Button btnSolve;
 
         /// <summary>
-        /// lblSolveMedianOfTwoArraysSolution control.
+        /// lblSolution control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSolveMedianOfTwoArraysSolution;
+        protected global::System.Web.UI.WebControls.Label lblSolution;
 
         /// <summary>
-        /// lblBinaryMatrixFlipper control.
+        /// lblCodeExecuted control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipper;
-
-        /// <summary>
-        /// lblBinaryMatrixFlipperTestCase1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperTestCase1;
-
-        /// <summary>
-        /// lblBinaryMatrixFlipperTestCase2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperTestCase2;
-
-        /// <summary>
-        /// bnSolveBinaryMatrixFlipper control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bnSolveBinaryMatrixFlipper;
-
-        /// <summary>
-        /// lblBinaryMatrixFlipperSolution control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBinaryMatrixFlipperSolution;
+        protected global::System.Web.UI.WebControls.Label lblCodeExecuted;
     }
 }

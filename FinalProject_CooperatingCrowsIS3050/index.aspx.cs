@@ -1,4 +1,16 @@
-﻿using System;
+﻿/* # Name:
+# email:
+# Assignment Title: Assignment nn
+# Due Date:
+# Course: IS 3050
+# Semester/Year:
+# Brief Description: This project ...
+# Citations:
+# Anything else that's relevant:
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,27 +26,96 @@ namespace FinalProject_CooperatingCrowsIS3050
 
         }
 
-        protected void bnSolveMedianOfTwoArrays_Click(object sender, EventArgs e)
+        protected void ddlProblems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            string selectedProblem = ddlProblems.SelectedValue;
+            lblSolution.Text = "";
+            txtArray1.Text = "";
+            txtArray2.Text = "";
+            btnSolve.Visible = true;
+
+            if (selectedProblem == "Median")
             {
-                // Convert the input strings into integer arrays
-                int[] nums1 = Array.ConvertAll(txtArray1.Text.Split(','), int.Parse);
-                int[] nums2 = Array.ConvertAll(txtArray2.Text.Split(','), int.Parse);
-
-                // Call the median method
-                double result = FindMedianSortedArrays(nums1, nums2);
-
-                // Display the result
-                lblSolveMedianOfTwoArraysSolution.Text = $"The median is: {result}";
+                lblProblemDescription.Text = "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.";
+                pnlMedianInputs.Visible = true;
             }
-            catch (Exception)
+            else if (selectedProblem == "Binary")
             {
-                lblSolveMedianOfTwoArraysSolution.Text = "Error: Please enter valid integers separated by commas.";
+                lblProblemDescription.Text = "Given a m x n binary matrix mat. In one step, you can choose one cell and flip it and all the four neighbors of it if they exist. Return the minimum steps to convert mat to a zero matrix.";
+                pnlMedianInputs.Visible = false;
+            }
+            else
+            {
+                lblProblemDescription.Text = "";
+                btnSolve.Visible = false;
             }
         }
 
-        // Function to find the median of two sorted arrays
+        // Solve Button Click Handler
+        protected void btnSolve_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedProblem = ddlProblems.SelectedValue;
+                string executedCode = ""; // String to store the code executed
+
+                if (selectedProblem == "Median")
+                {
+                    int[] nums1 = txtArray1.Text.Split(',').Select(int.Parse).ToArray();
+                    int[] nums2 = txtArray2.Text.Split(',').Select(int.Parse).ToArray();
+
+                    // The actual function call
+                    double median = FindMedianSortedArrays(nums1, nums2);
+
+                    lblSolution.Text = $"The median is: {median}";
+
+                    // Save the code executed
+                    executedCode = @"
+                    // Median of Two Sorted Arrays
+                    int[] nums1 = txtArray1.Text.Split(',').Select(int.Parse).ToArray();
+                    int[] nums2 = txtArray2.Text.Split(',').Select(int.Parse).ToArray();
+                    double median = FindMedianSortedArrays(nums1, nums2);
+                    lblSolution.Text = $""The median is: {median}"";
+                    ";
+
+                }
+                else if (selectedProblem == "Binary")
+                {
+                    int[][] mat = new int[2][] {
+                        new int[] { 0, 0 },
+                        new int[] { 0, 1 }
+                    };
+
+                    int steps = MinFlips(mat);
+                    lblSolution.Text = steps == -1
+                        ? "Cannot convert to zero matrix."
+                        : $"Minimum Steps: {steps}";
+
+                    // Save the code executed
+                    executedCode = @"
+                    // Binary Matrix Flipper
+                    int[][] mat = new int[2][] {
+                        new int[] { 0, 0 },
+                        new int[] { 0, 1 }
+                    };
+                    int steps = MinFlips(mat);
+                    lblSolution.Text = steps == -1
+                        ? ""Cannot convert to zero matrix.""
+                        : $""Minimum Steps: {steps}"";
+                    ";
+                }
+
+                // Display the code executed in a new label
+                lblCodeExecuted.Text = $"Executed Code: <pre>{executedCode}</pre>";
+
+            }
+            catch (Exception)
+            {
+                lblSolution.Text = "Error: Please enter valid input.";
+            }
+        }
+
+        // Median of Two Sorted Arrays
         public double FindMedianSortedArrays(int[] nums1, int[] nums2)
         {
             if (nums1.Length > nums2.Length)
@@ -58,14 +139,9 @@ namespace FinalProject_CooperatingCrowsIS3050
 
                 if (maxX <= minY && maxY <= minX)
                 {
-                    if ((m + n) % 2 == 0)
-                    {
-                        return (Math.Max(maxX, maxY) + Math.Min(minX, minY)) / 2.0;
-                    }
-                    else
-                    {
-                        return Math.Max(maxX, maxY);
-                    }
+                    return (m + n) % 2 == 0
+                        ? (Math.Max(maxX, maxY) + Math.Min(minX, minY)) / 2.0
+                        : Math.Max(maxX, maxY);
                 }
                 else if (maxX < minY)
                 {
@@ -77,25 +153,60 @@ namespace FinalProject_CooperatingCrowsIS3050
                 }
             }
 
-            throw new ArgumentException("The input arrays are not sorted.");
+            throw new ArgumentException("Input arrays are not sorted.");
         }
 
-        /// <summary>
-        /// Invokes MinFlips in the class BinaryMatrixFlipper and returns the solution on button press.
-        /// </summary>
-        /// <param name="sender"> contains a reference to the object</param>
-        /// <param name="e"> Contains the event data </param>
-        protected void bnSolveBinaryMatrixFlipper_Click(object sender, EventArgs e)
+        // Minimum Steps to Zero Matrix
+        public int MinFlips(int[][] mat)
         {
-            BinaryMatrixFlipper BinaryMatrixFlipper = new BinaryMatrixFlipper();
-            int[][] mat = new int[2][];
-            mat[0] = new int[] { 0, 0 };
-            mat[1] = new int[] { 0, 1 };
-            int numflips = BinaryMatrixFlipper.MinFlips(mat);
-            lblBinaryMatrixFlipperSolution.Text = "The number of flips required is " + numflips.ToString();
+            int m = mat.Length, n = mat[0].Length;
+            int all = 1 << (m * n);
+            int res = int.MaxValue;
+
+            for (int mask = 0; mask < all; mask++)
+            {
+                int[][] temp = mat.Select(row => row.ToArray()).ToArray();
+                int flipCount = 0;
+
+                for (int i = 0; i < m; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        int bitIndex = i * n + j;
+                        if ((mask & (1 << bitIndex)) != 0)
+                        {
+                            Flip(temp, i, j);
+                            flipCount++;
+                        }
+                    }
+                }
+
+                if (IsZeroMatrix(temp))
+                {
+                    res = Math.Min(res, flipCount);
+                }
+            }
+
+            return res == int.MaxValue ? -1 : res;
         }
+
+        private void Flip(int[][] mat, int i, int j)
+        {
+            int[][] directions = { new int[] { 0, 0 }, new int[] { 1, 0 }, new int[] { -1, 0 }, new int[] { 0, 1 }, new int[] { 0, -1 } };
+
+            foreach (var dir in directions)
+            {
+                int x = i + dir[0], y = j + dir[1];
+                if (x >= 0 && x < mat.Length && y >= 0 && y < mat[0].Length)
+                {
+                    mat[x][y] ^= 1;
+                }
+            }
+        }
+
+        private bool IsZeroMatrix(int[][] mat) => mat.All(row => row.All(cell => cell == 0));
     }
 
-    
+
 
 }
